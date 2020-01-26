@@ -26,12 +26,12 @@ spec:
   selector:
     matchLabels:
       app: train-schedule-image
-      track: stable-version
+      track: stable
   template:
     metadata:
       labels:
         app: train-schedule-image
-        track: stable-version
+        track: stable
     spec:
       containers:
       - name: train-schedule-image
