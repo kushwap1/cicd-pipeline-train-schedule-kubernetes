@@ -22,7 +22,7 @@ metadata:
   labels:
     app: train-schedule-image
 spec:
-  replicas: 1
+  replicas: 4
   selector:
     matchLabels:
       app: train-schedule-image
