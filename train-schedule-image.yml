@@ -39,7 +39,7 @@ spec:
         livenessProbe:
           httpGet:
             path: /
-            port: 8090
+            port: 8080
           initialDelaySeconds: 15
           timeoutSeconds: 1
           periodSeconds: 10
