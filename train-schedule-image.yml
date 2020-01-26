@@ -22,7 +22,7 @@ metadata:
   labels:
     app: train-schedule-image
 spec:
-  replicas: 4
+  replicas: 1
   selector:
     matchLabels:
       app: train-schedule-image
@@ -33,7 +33,7 @@ spec:
     spec:
       containers:
       - name: train-schedule-image
-        image: linuxacademycontent/train-schedule:1
+        image: linuxacademycontent/train-schedule:autoscaling
         ports:
         - containerPort: 8080
         livenessProbe:
