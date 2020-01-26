@@ -26,7 +26,6 @@ spec:
   selector:
     matchLabels:
       app: train-schedule-image
-      track: stable
   template:
     metadata:
       labels:
