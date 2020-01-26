@@ -1,13 +1,13 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: train-schedule-service
+  name: train-schedule
   annotations:
     prometheus.io/scrape: 'true'
 spec:
   type: NodePort
   selector:
-    app: train-schedule-image
+    app: train-schedule
   ports:
   - protocol: TCP
     port: 8080
@@ -20,19 +20,19 @@ kind: Deployment
 metadata:
   name: train-schedule-deployment
   labels:
-    app: train-schedule-image
+    app: train-schedule
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: train-schedule-image
+      app: train-schedule
   template:
     metadata:
       labels:
-        app: train-schedule-image
+        app: train-schedule
     spec:
       containers:
-      - name: train-schedule-image
+      - name: train-schedule
         image: linuxacademycontent/train-schedule:autoscaling
         ports:
         - containerPort: 8080
@@ -52,7 +52,7 @@ spec:
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: train-schedule-image
+  name: train-schedule
   namespace: default
 spec:
   scaleTargetRef:
