@@ -22,18 +22,20 @@ metadata:
   labels:
     app: train-schedule-image
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: train-schedule-image
+      track: stable-version
   template:
     metadata:
       labels:
         app: train-schedule-image
+        track: stable-version
     spec:
       containers:
       - name: train-schedule-image
-        image: linuxacademycontent/train-schedule:1
+        image: $DOCKER_IMAGE_NAME:$BUILD_NUMBER
         ports:
         - containerPort: 8080
         livenessProbe:
